@@ -1,0 +1,233 @@
+/* ==========================================
+   Horizonte Literário - estilo.css
+   Um único CSS usado pelas cinco páginas
+   ========================================== */
+
+/* ----- Cores do site (variáveis) ----- */
+:root {
+  --fundo: #faf5ec;        /* bege claro */
+  --marrom: #4a2f22;       /* marrom escuro */
+  --rosa: #f3d9dc;         /* rosa claro */
+  --rosa-escuro: #e5b8bf;  /* rosa para o efeito hover */
+  --texto: #3b3b3b;
+  --cartao: #fffdf9;
+  --borda: #e2d6c4;
+}
+
+/* ----- Configurações gerais ----- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--fundo);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--marrom);
+  line-height: 1.25;
+}
+
+h1 { font-size: 2.4rem; margin-bottom: 0.5rem; }
+h2 { font-size: 1.7rem; text-align: center; margin: 2.5rem 0 1.5rem; }
+h3 { font-size: 1.25rem; margin: 1rem 0 0.2rem; }
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ----- Cabeçalho e menu ----- */
+header {
+  background-color: var(--marrom);
+  padding: 1rem 1.5rem;
+}
+
+.topo {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.logo {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.6rem;
+  color: var(--rosa);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+nav a {
+  display: block;
+  padding: 0.4rem 0.9rem;
+  color: var(--fundo);
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+nav a:hover,
+nav a.ativo {
+  background-color: var(--rosa);
+  color: var(--marrom);
+}
+
+/* ----- Conteúdo principal ----- */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.hero,
+.intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.frase {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--marrom);
+}
+
+/* ----- Cartões (grade de 3 colunas) ----- */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.cartao {
+  background-color: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.cartao img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+.cartao p {
+  margin: 0.5rem 0;
+}
+
+/* Cartões dos livros: a capa não precisa ocupar toda a largura */
+.livro img {
+  max-width: 220px;
+}
+
+.autor {
+  font-style: italic;
+  color: var(--marrom);
+}
+
+/* ----- Botões ----- */
+.botao {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.5rem 1.2rem;
+  background-color: var(--rosa);
+  color: var(--marrom);
+  border: 1px solid var(--rosa-escuro);
+  border-radius: 4px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.botao:hover {
+  background-color: var(--rosa-escuro);
+}
+
+/* ----- Formulário de contato ----- */
+.formulario {
+  max-width: 600px;
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  background-color: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+}
+
+.formulario label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: var(--marrom);
+}
+
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.6rem;
+  border: 1px solid var(--borda);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: 2px solid var(--rosa-escuro);
+}
+
+.formulario .botao {
+  margin-top: 1.5rem;
+}
+
+/* ----- Rodapé ----- */
+footer {
+  background-color: var(--marrom);
+  color: var(--fundo);
+  text-align: center;
+  padding: 1.2rem;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0.2rem 0;
+}
+
+/* ----- Telas menores (celulares e tablets) ----- */
+@media (max-width: 800px) {
+  .grade {
+    grid-template-columns: 1fr;
+  }
+
+  .topo {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav ul {
+    justify-content: center;
+  }
+
+  h1 { font-size: 2rem; }
+}
